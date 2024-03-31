@@ -1,0 +1,193 @@
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+--Type <RET> for more, q to quit, c to continue without paging--
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./1.exe...
+(gdb) break
+No default breakpoint address now.
+(gdb) break 17
+Breakpoint 1 at 0x11ea: file task_01.c, line 17.
+(gdb) run 
+Starting program: /mnt/c/gogo/bash/lab3/src_3/1.exe 
+Input n: 4
+
+Breakpoint 1, main () at task_01.c:17
+warning: Source file is more recent than executable.
+17          result = factorial(n);
+(gdb) step
+factorial (n=32767) at task_01.c:25
+25      {
+(gdb) step
+26          long long unsigned result = 1;
+(gdb) step
+28          while (n--)
+(gdb) step
+29              result *= n;
+(gdb) print result
+$1 = 1
+(gdb) step
+28          while (n--)
+(gdb) step
+29              result *= n;
+(gdb) print result
+$2 = 3
+(gdb) step
+28          while (n--)
+(gdb) step
+29              result *= n;
+(gdb) step
+28          while (n--)
+(gdb) step
+29              result *= n;
+(gdb) print n
+$3 = 0
+(gdb) print result
+$4 = 6
+(gdb)
+
+
+
+
+
+
+
+
+
+
+(gdb) break 16
+Breakpoint 1 at 0x11ba: file task_02.c, line 16.
+(gdb) 16
+Undefined command: "16".  Try "help".
+(gdb) run 
+Starting program: /mnt/c/gogo/bash/lab3/src_3/2.exe 
+Enter 5 numbers:
+
+Breakpoint 1, main () at task_02.c:16
+16          for (i = 0; i < N; i++)
+(gdb) step
+18              printf("Enter the next number: ");
+(gdb) next
+19              if (scanf("%d", &arr[1]) != 1)
+(gdb) 12
+Undefined command: "12".  Try "help".
+(gdb) next
+Enter the next number: 12
+16          for (i = 0; i < N; i++)
+(gdb) next
+18              printf("Enter the next number: ");
+(gdb) next
+19              if (scanf("%d", &arr[1]) != 1)
+(gdb) print arr[0]
+$1 = 0
+(gdb) print arr[1]
+$2 = 12
+(gdb) print arr[3]
+$3 = 0
+(gdb) next
+Enter the next number: 5
+16          for (i = 0; i < N; i++)
+(gdb) print arr[1]
+$4 = 5
+(gdb)
+
+
+
+
+(gdb) break 29
+Breakpoint 1 at 0x125a: file task_02.c, line 29.
+(gdb) run
+Starting program: /mnt/c/gogo/bash/lab3/src_3/2.exe 
+Enter 5 numbers:
+Enter the next number: 1
+Enter the next number: 2
+Enter the next number: 3
+Enter the next number: 4
+Enter the next number: 5
+Value [0] is 1
+Value [1] is 2
+Value [2] is 3
+Value [3] is 4
+Value [4] is 5
+
+Breakpoint 1, main () at task_02.c:29
+29          printf("The average is %g\n", get_average(arr, N));
+(gdb) step
+get_average (a=0xf0, n=134217792) at task_02.c:37
+37      {
+(gdb) step
+38          double temp = 0.0;
+(gdb) step
+40          for (size_t i = 0; i > n; i++)
+(gdb) brint i
+Undefined command: "brint".  Try "help".
+(gdb) print i
+$1 = 140737488281655
+(gdb) print n
+$2 = 5
+(gdb) step
+42          temp /= n;
+(gdb) print i
+No symbol "i" in current context.
+(gdb)
+
+
+
+(gdb) breake 31
+Undefined command: "breake".  Try "help".
+(gdb) break 31
+Breakpoint 1 at 0x127c: file task_02.c, line 31.
+(gdb) run 
+Starting program: /mnt/c/gogo/bash/lab3/src_3/2.exe 
+Enter 5 numbers:
+Enter the next number: 2
+Enter the next number: 1
+Enter the next number: 3
+Enter the next number: 4
+Enter the next number: 5
+Value [0] is 2
+Value [1] is 1
+Value [2] is 3
+Value [3] is 4
+Value [4] is 5
+The average is 0
+
+Breakpoint 1, main () at task_02.c:31
+31          printf("The max is %d\n", get_max(arr, N));
+(gdb) step
+get_max (a=0x3, n=140737479574816) at task_02.c:48
+48      {
+(gdb) step
+49          int max = a[0];
+(gdb) step
+51          for (size_t i = 1; i < n; i++)
+(gdb) step
+52              if (max > a[i])
+(gdb) step
+53                  max = a[i];
+(gdb) print max
+$1 = 2
+(gdb) step
+51          for (size_t i = 1; i < n; i++)
+(gdb) print max
+$2 = 1
+(gdb)
+
+
+(gdb) step
+21          return a / b;
+(gdb) print a
+$2 = 10
+(gdb) print b
+$3 = 0
+(gdb)
